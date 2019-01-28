@@ -3,7 +3,7 @@ package com.hwang.taskmaster;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {TaskMaster.class}, version = 1, exportSchema = false)
+@Database(entities = {Task.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
-  public abstract TaskMasterDao taskMasterDao();
+  public abstract TaskDao taskDao();
 }
