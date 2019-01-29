@@ -49,6 +49,23 @@ public void setFinished(boolean finished){
     this.finished = finished;
 }
 
+public void setState(State state){
+    this.State = state;
+}
+
+//public void setState(State state) {
+//  switch (state) {
+//    case AVAILABLE:
+//      state.
+//    case ASSIGNED:
+//      return ASSIGNED.value;
+//    case ACCEPTED:
+//      return ACCEPTED.value;
+//    case FINISHED:
+//      return FINISHED.value;
+//  }
+//}
+
   public String title;
   public String description;
   public String finishBy;
@@ -68,24 +85,6 @@ public void setFinished(boolean finished){
     return "Task name: " + title + " Description: " + description +  " Finish by: " + finishBy;
   }
 
-//  public class ConstantState{
-//    public static final String AVAILABLE = "Available";
-//    public static final String ASSIGNED = "Assigned";
-//    public static final String ACCEPTED = "Accepted";
-//    public static final String FINISHED = "Finished";
-//  }
-
-
-
-//  public enum State {
-//    AVAILABLE("Available"), ASSIGNED("Assigned"), ACCEPTED("Accepted"), FINISHED("Finished");
-//
-//    private String value;
-//
-//    private State(String value){
-//      this.value = value;
-//    }
-//  }
 
     public enum State {
     AVAILABLE("Available"), ASSIGNED("Assigned"), ACCEPTED("Accepted"), FINISHED("Finished");
@@ -95,9 +94,10 @@ public void setFinished(boolean finished){
       this.value = value;
     }
 
-//    public String getState(){
-//      return ;
-//    }
+
+    }
+
+
 
 //    public String getState(){
 //      switch(this){
@@ -112,24 +112,10 @@ public void setFinished(boolean finished){
 //      }
 //      return null;
 //    }
-  }
+//  }
 
 
 
-//  public String isAccepted(){
-//    return State.ACCEPTED.value;
-//  }
-//
-//  public String isAssigned(){
-//    return State.ASSIGNED.value;
-//  }
-//
-//  public String isAvailable(){
-//    return State.AVAILABLE.value;
-//  }
-//
-//  public String isFinished(){
-//    return State.FINISHED.value;
-//  }
+
 
 }
