@@ -69,6 +69,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
     editTextTitle.setText(task.getTitle());
     editTextDescription.setText(task.getDescription());
     editTextFinishBy.setText(task.getFinishBy());
+    checkBoxFinished.setChecked(task.isFinished());
   }
 
 
@@ -101,6 +102,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
         task.setTitle(sTask);
         task.setDescription(sDesc);
         task.setFinishBy(sFinishBy);
+        task.setFinished(checkBoxFinished.isChecked());
         DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().update(task);
         return null;
       }

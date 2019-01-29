@@ -19,7 +19,7 @@ public class AddTaskActivity extends AppCompatActivity {
   private EditText editTextTitle;
   private EditText editTextDescription;
   private EditText editTextFinishBy;
-  Date currentTime = Calendar.getInstance().getTime();
+
 
 
   @Override
@@ -69,6 +69,7 @@ public class AddTaskActivity extends AppCompatActivity {
         task.setTitle(saveTitle);
         task.setDescription(saveDescription);
         task.setFinishBy(saveFinishBy);
+        task.setFinished(false);
 
         DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().add(task);
         return null;

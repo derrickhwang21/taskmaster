@@ -33,17 +33,44 @@
             android:layout_height="wrap_content"
             android:hint="description..." />
 
+
+
         <EditText
             android:id="@+id/editTextFinishBy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="finish by?" />
 
-        <CheckBox
-            android:id="@+id/checkBoxFinished"
+        <RadioGroup
+            android:orientation="horizontal"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/available"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mark as finished" />
+            android:text="Available"/>
+        <RadioButton
+            android:id="@+id/assigned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Assigned"/>
+        <RadioButton
+            android:id="@+id/accepted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accepted"/>
+        <RadioButton
+            android:id="@+id/finished"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Finished"/>
+        </RadioGroup>
+        <!--<CheckBox-->
+            <!--android:id="@+id/checkBoxFinished"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Mark as finished" />-->
 
         <Button
             android:id="@+id/button_update"

@@ -33,6 +33,11 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
     holder.textViewTitle.setText(t.getTitle());
     holder.textViewDescription.setText(t.getDescription());
     holder.textViewFinishBy.setText(t.getFinishBy());
+
+    if (t.isFinished())
+      holder.textViewStatus.setText("Completed");
+    else
+      holder.textViewStatus.setText("Not Completed");
   }
 
   @Override
@@ -41,11 +46,12 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
   }
 
   class TasksViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    TextView textViewTitle, textViewDescription, textViewFinishBy;
+    TextView textViewStatus, textViewTitle, textViewDescription, textViewFinishBy;
 
     public TasksViewHolder(View itemView){
       super(itemView);
 
+      textViewStatus = itemView.findViewById(R.id.textViewStatus);
       textViewTitle = itemView.findViewById(R.id.textViewTask);
       textViewDescription = itemView.findViewById(R.id.textViewDesc);
       textViewFinishBy = itemView.findViewById(R.id.textViewFinishBy);

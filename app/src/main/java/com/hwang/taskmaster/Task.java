@@ -36,11 +36,18 @@ public class Task implements Serializable {
     this.finishBy = finishBy;
   }
 
+public boolean isFinished(){
+    return finished;
+}
 
+public void setFinished(boolean finished){
+    this.finished = finished;
+}
 
   public String title;
   public String description;
   public String finishBy;
+  public boolean finished;
 
 
 //  public Task (String title, String description, String finishBy){
