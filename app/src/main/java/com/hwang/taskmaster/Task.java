@@ -1,10 +1,17 @@
 package com.hwang.taskmaster;
 
+import java.io.Serializable;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import static com.hwang.taskmaster.Task.State.ACCEPTED;
+import static com.hwang.taskmaster.Task.State.ASSIGNED;
+import static com.hwang.taskmaster.Task.State.AVAILABLE;
+import static com.hwang.taskmaster.Task.State.FINISHED;
+
 @Entity
-public class Task {
+public class Task implements Serializable {
 
   @PrimaryKey(autoGenerate = true)
   public int id;
@@ -25,13 +32,6 @@ public class Task {
     this.description = description;
   }
 
-  public String getTimeStamp() {
-    return timeStamp;
-  }
-
-  public void setTimeStamp(String timeStamp) {
-    this.timeStamp = timeStamp;
-  }
 
   public String getFinishBy() {
     return finishBy;
@@ -41,32 +41,81 @@ public class Task {
     this.finishBy = finishBy;
   }
 
-  public int getStatus() {
-    return status;
-  }
+//public boolean isFinished(){
+//    return finished;
+//}
 
-  public void setStatus(int status) {
-    this.status = status;
-  }
+public void setFinished(boolean finished){
+    this.finished = finished;
+}
+
+public void setState(State state){
+    this.State = state;
+}
+
+//public void setState(State state) {
+//  switch (state) {
+//    case AVAILABLE:
+//      state.
+//    case ASSIGNED:
+//      return ASSIGNED.value;
+//    case ACCEPTED:
+//      return ACCEPTED.value;
+//    case FINISHED:
+//      return FINISHED.value;
+//  }
+//}
 
   public String title;
   public String description;
-  public String timeStamp;
   public String finishBy;
-  public int status;
+  public boolean finished;
+  public Enum State;
 
-  public Task (String title, String description, String timeStamp, int status, String finishBy){
-    this.title = title;
-    this.description = description;
-    this.timeStamp = timeStamp;
-    this.status = status;
-    this.finishBy = finishBy;
-  }
+
+//  public Task (String title, String description, String finishBy){
+//    this.title = title;
+//    this.description = description;
+//    this.finishBy = finishBy;
+//  }
 
   public Task(){}
 
   public String toString(){
-    return "Task name: " + title + " Description: " + description + "Time: " + timeStamp + " Status: " + status + " Finish by: " + finishBy;
+    return "Task name: " + title + " Description: " + description +  " Finish by: " + finishBy;
   }
+
+
+    public enum State {
+    AVAILABLE("Available"), ASSIGNED("Assigned"), ACCEPTED("Accepted"), FINISHED("Finished");
+    private String value;
+
+    private State(String value) {
+      this.value = value;
+    }
+
+
+    }
+
+
+
+//    public String getState(){
+//      switch(this){
+//        case AVAILABLE:
+//           return AVAILABLE.value;
+//        case ASSIGNED:
+//          return ASSIGNED.value;
+//        case ACCEPTED:
+//          return ACCEPTED.value;
+//        case FINISHED:
+//          return FINISHED.value;
+//      }
+//      return null;
+//    }
+//  }
+
+
+
+
 
 }
