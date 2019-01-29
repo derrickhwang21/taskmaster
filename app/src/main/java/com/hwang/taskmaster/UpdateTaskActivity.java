@@ -10,12 +10,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 public class UpdateTaskActivity extends AppCompatActivity {
 
   private EditText editTextTitle, editTextDescription, editTextFinishBy;
   private CheckBox checkBoxFinished;
+  private RadioGroup checkRadioState;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -103,6 +105,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
         task.setDescription(sDesc);
         task.setFinishBy(sFinishBy);
         task.setFinished(checkBoxFinished.isChecked());
+
         DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().update(task);
         return null;
       }
