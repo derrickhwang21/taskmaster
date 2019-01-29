@@ -15,7 +15,7 @@ import java.util.Date;
 
 public class AddTaskActivity extends AppCompatActivity {
 
-  AppDatabase database;
+
   private EditText editTextTitle;
   private EditText editTextDescription;
   private EditText editTextFinishBy;
@@ -26,7 +26,6 @@ public class AddTaskActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_add_task);
-    database = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "task").fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
     editTextTitle = findViewById(R.id.editTextTask);
     editTextDescription = findViewById(R.id.editTextDesc);
@@ -70,10 +69,8 @@ public class AddTaskActivity extends AppCompatActivity {
         task.setTitle(saveTitle);
         task.setDescription(saveDescription);
         task.setFinishBy(saveFinishBy);
-        task.setTimeStamp(currentTime.toString());
-        task.setStatus(1);
 
-        database.taskDao().add(task);
+        DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().add(task);
         return null;
       }
 

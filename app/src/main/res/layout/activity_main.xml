@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="8dp"
     tools:context=".MainActivity">
+    <!--tools:showIn="@layout/activity_main">-->
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_tasks"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <android.support.design.widget.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating_button_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,8 +21,7 @@
         android:layout_alignParentRight="true"
         android:layout_margin="8dp"
         android:backgroundTint="@color/colorPrimaryDark"
-        android:src="@drawable/ic_add"
-        android:tint="@color/colorLight"
+        android:src="@drawable/ic_add_black_24dp"
         app:fabSize="normal" />
 
 </RelativeLayout>

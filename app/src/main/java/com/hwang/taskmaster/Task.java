@@ -1,10 +1,12 @@
 package com.hwang.taskmaster;
 
+import java.io.Serializable;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Task {
+public class Task implements Serializable {
 
   @PrimaryKey(autoGenerate = true)
   public int id;
@@ -25,13 +27,6 @@ public class Task {
     this.description = description;
   }
 
-  public String getTimeStamp() {
-    return timeStamp;
-  }
-
-  public void setTimeStamp(String timeStamp) {
-    this.timeStamp = timeStamp;
-  }
 
   public String getFinishBy() {
     return finishBy;
@@ -41,32 +36,23 @@ public class Task {
     this.finishBy = finishBy;
   }
 
-  public int getStatus() {
-    return status;
-  }
 
-  public void setStatus(int status) {
-    this.status = status;
-  }
 
   public String title;
   public String description;
-  public String timeStamp;
   public String finishBy;
-  public int status;
 
-  public Task (String title, String description, String timeStamp, int status, String finishBy){
-    this.title = title;
-    this.description = description;
-    this.timeStamp = timeStamp;
-    this.status = status;
-    this.finishBy = finishBy;
-  }
+
+//  public Task (String title, String description, String finishBy){
+//    this.title = title;
+//    this.description = description;
+//    this.finishBy = finishBy;
+//  }
 
   public Task(){}
 
   public String toString(){
-    return "Task name: " + title + " Description: " + description + "Time: " + timeStamp + " Status: " + status + " Finish by: " + finishBy;
+    return "Task name: " + title + " Description: " + description +  " Finish by: " + finishBy;
   }
 
 }
