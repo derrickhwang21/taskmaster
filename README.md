@@ -21,7 +21,7 @@ User should be able to assign themselves a task, accept that task, and later fin
 
 Update Task          |  Home After Update
 :-------------------------:|:-------------------------:
-![sc-add-task](assets/sc-task-activity4.png)  |  ![sc-add-task-after](assets/sc-task-activity5.png)
+![sc-add-task](assets/sc-task-activity-4.png)  |  ![sc-add-task-after](assets/sc-task-activity-5.png)
 
 
 ## Credit/Sources 
