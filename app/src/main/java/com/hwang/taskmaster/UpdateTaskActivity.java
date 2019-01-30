@@ -23,7 +23,6 @@ import static com.hwang.taskmaster.Task.State.FINISHED;
 public class UpdateTaskActivity extends AppCompatActivity {
 
   private EditText editTextTitle, editTextDescription, editTextFinishBy;
-  private CheckBox checkBoxFinished;
   private RadioGroup checkRadioState;
   private RadioButton available, assigned, accepted, finished;
 
@@ -36,7 +35,6 @@ public class UpdateTaskActivity extends AppCompatActivity {
     editTextTitle = findViewById(R.id.editTextTask);
     editTextDescription = findViewById(R.id.editTextDesc);
     editTextFinishBy = findViewById(R.id.editTextFinishBy);
-    checkBoxFinished = findViewById(R.id.checkBoxFinished);
     checkRadioState = findViewById(R.id.radioStatus);
     available = findViewById(R.id.available);
     assigned = findViewById(R.id.assigned);
@@ -77,9 +75,23 @@ public class UpdateTaskActivity extends AppCompatActivity {
         ad.show();
       }
     });
+
+// State Listener
+    checkRadioState.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+      @Override
+      public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if(checkedId == R.id.finished){
+          task.setTaskState(FINISHED);
+        }else if(checkedId == R.id.assigned){
+          task.setTaskState(ASSIGNED);
+        }else if(checkedId == R.id.accepted){
+          task.setTaskState(ACCEPTED);
+        }else{
+          task.setTaskState(AVAILABLE);
+        }
+      }
+    });
   }
-
-
 
   private void loadTask(Task task){
 
@@ -137,28 +149,13 @@ public class UpdateTaskActivity extends AppCompatActivity {
       return;
     }
 
-
-
     class UpdateTask extends AsyncTask<Void, Void, Void>{
       @Override
       protected Void doInBackground(Void... voids){
         task.setTitle(sTask);
         task.setDescription(sDesc);
         task.setFinishBy(sFinishBy);
-        checkRadioState.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-          @Override
-          public void onCheckedChanged(RadioGroup group, int checkedId) {
-            if(checkedId == R.id.finished){
-              task.setTaskState(FINISHED);
-            }else if(checkedId == R.id.assigned){
-              task.setTaskState(ASSIGNED);
-            }else if(checkedId == R.id.accepted){
-              task.setTaskState(ACCEPTED);
-            }else{
-              task.setTaskState(ACCEPTED);
-            }
-          }
-        });
+
 
         DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().update(task);
         return null;

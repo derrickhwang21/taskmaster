@@ -18,54 +18,36 @@ public class Task implements Serializable {
   public String title;
   public String description;
   public String finishBy;
-  @TypeConverters(State.class)
+  @TypeConverters(StateConverter.class)
   public State taskState;
 
   public enum State {
-    AVAILABLE("Available"), ASSIGNED("Assigned"), ACCEPTED("Accepted"), FINISHED("Finished");
-    private final String value;
+    AVAILABLE("AVAILABLE"), ASSIGNED("ASSIGNED"), ACCEPTED("ACCEPTED"), FINISHED("FINISHED");
+    protected final String value;
 
     State(String value) {
       this.value = value;
     }
-
   }
 
   public String getTitle() {
     return title;
   }
-
   public void setTitle(String title) {
     this.title = title;
   }
-
   public String getDescription() {
     return description;
   }
-
   public void setDescription(String description) {
     this.description = description;
   }
-
-
   public String getFinishBy() {
     return finishBy;
   }
-
-
   public void setFinishBy(String finishBy) {
     this.finishBy = finishBy;
   }
-
-
-//public void setState(State state){
-//    this.State = state;
-//}
-
-
-
-
-
 
   public Task(){}
 
@@ -75,15 +57,11 @@ public class Task implements Serializable {
 
 
 
-  @TypeConverter
-  public static State toState(String state) {
-    if (TextUtils.isEmpty(state)) {
-      return State.AVAILABLE;
-    }
-    return State.valueOf(state);
-  }
 
-    public void setTaskState(State state){
+
+
+
+  public void setTaskState(State state){
       this.taskState = state;
     }
 

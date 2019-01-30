@@ -71,7 +71,7 @@ public class AddTaskActivity extends AppCompatActivity {
         task.setTitle(saveTitle);
         task.setDescription(saveDescription);
         task.setFinishBy(saveFinishBy);
-        task.setTaskState(AVAILABLE);
+        task.setTaskState(null);
 
         DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().add(task);
         return null;

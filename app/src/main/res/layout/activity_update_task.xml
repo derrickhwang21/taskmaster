@@ -67,11 +67,11 @@
                 android:layout_height="wrap_content"
                 android:text="Finished"/>
         </RadioGroup>
-        <CheckBox
-            android:id="@+id/checkBoxFinished"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mark as finished" />
+        <!--<CheckBox-->
+            <!--android:id="@+id/checkBoxFinished"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Mark as finished" />-->
 
         <Button
             android:id="@+id/button_update"

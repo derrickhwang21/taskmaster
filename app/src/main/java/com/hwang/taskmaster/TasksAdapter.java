@@ -37,7 +37,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
     holder.textViewTitle.setText(t.getTitle());
     holder.textViewDescription.setText(t.getDescription());
     holder.textViewFinishBy.setText(t.getFinishBy());
-    holder.textViewStatus.setText(t.getState().toString());
+    holder.textViewStatus.setText(t.getState().value);
 
   }
 
