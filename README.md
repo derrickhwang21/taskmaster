@@ -11,7 +11,7 @@ User should be able to create a Project
 
 Finger Exercises          |  Stop Watch |  Inspiring Image Carousel
 :-------------------------:|:-------------------------: | :--------------------------------:
-![sc-home](assets/sc-task-activity-1.png)  |  ![sc-add-project](screenshots/sc-task-activity-2.png) | ![sc-home-project](screenshots/sc-task-activity-3.png)
+![sc-home](assets/sc-task-activity-1.png)  |  ![sc-add-project](assets/sc-task-activity-2.png) | ![sc-home-project](assets/sc-task-activity-3.png)
 
 #### Add Task
 
@@ -21,7 +21,7 @@ User should be able to assign themselves a task, accept that task, and later fin
 
 Home Page Without User Profile Image           |  Camera Activity
 :-------------------------:|:-------------------------:
-![sc-add-task](assets/sc-task-activity4.png)  |  ![sc-add-task-after](screenshots/sc-task-activity5.png)
+![sc-add-task](assets/sc-task-activity4.png)  |  ![sc-add-task-after](assets/sc-task-activity5.png)
 
 
 ## Credit/Sources 
