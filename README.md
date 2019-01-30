@@ -9,7 +9,7 @@ Building an Android Task Master App. Which allows tracking tasks on a project.
 
 User should be able to create a Project
 
-Finger Exercises          |  Stop Watch |  Inspiring Image Carousel
+Home          |  Add Project |  Home After Add
 :-------------------------:|:-------------------------: | :--------------------------------:
 ![sc-home](assets/sc-task-activity-1.png)  |  ![sc-add-project](assets/sc-task-activity-2.png) | ![sc-home-project](assets/sc-task-activity-3.png)
 
@@ -19,7 +19,7 @@ User should be able to add a task to a Project
 
 User should be able to assign themselves a task, accept that task, and later finish that task
 
-Home Page Without User Profile Image           |  Camera Activity
+Update Task          |  Home After Update
 :-------------------------:|:-------------------------:
 ![sc-add-task](assets/sc-task-activity4.png)  |  ![sc-add-task-after](assets/sc-task-activity5.png)
 
