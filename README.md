@@ -11,7 +11,7 @@ User should be able to create a Project
 
 Home          |  Add Project |  Home After Add
 :-------------------------:|:-------------------------: | :--------------------------------:
-![sc-home](assets/sc-task-activity-1.png)  |  ![sc-add-project](assets/sc-task-activity-2.png) | ![sc-home-project](assets/sc-task-activity-3.png)
+![sc-home](assets/sc-task-activitiy-1.png)  |  ![sc-add-project](assets/sc-task-activity-2.png) | ![sc-home-project](assets/sc-task-activity-3.png)
 
 #### Add Task
 
