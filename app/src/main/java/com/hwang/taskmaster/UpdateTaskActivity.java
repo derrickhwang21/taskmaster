@@ -76,7 +76,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
       }
     });
 
-
+// State Listener
     checkRadioState.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
       @Override
       public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -92,8 +92,6 @@ public class UpdateTaskActivity extends AppCompatActivity {
       }
     });
   }
-
-
 
   private void loadTask(Task task){
 
