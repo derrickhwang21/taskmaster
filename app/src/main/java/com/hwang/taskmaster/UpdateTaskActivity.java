@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.sip.SipSession;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -78,31 +79,33 @@ public class UpdateTaskActivity extends AppCompatActivity {
     });
   }
 
+
+
   private void loadTask(Task task){
 
     editTextTitle.setText(task.getTitle());
     editTextDescription.setText(task.getDescription());
     editTextFinishBy.setText(task.getFinishBy());
-    switch(task.State.name()){
-        case "AVAILABLE":
+    switch(task.getState()){
+        case AVAILABLE:
           available.setChecked(true);
           assigned.setChecked(false);
           accepted.setChecked(false);
           finished.setChecked(false);
           break;
-        case "ASSIGNED":
+      case ASSIGNED:
           available.setChecked(false);
           assigned.setChecked(true);
           accepted.setChecked(false);
           finished.setChecked(false);
           break;
-        case "ACCEPTED":
+        case ACCEPTED:
           available.setChecked(false);
           assigned.setChecked(false);
           accepted.setChecked(true);
           finished.setChecked(false);
           break;
-        case "FINISHED":
+      case FINISHED:
           available.setChecked(false);
           assigned.setChecked(false);
           accepted.setChecked(false);
@@ -146,13 +149,13 @@ public class UpdateTaskActivity extends AppCompatActivity {
           @Override
           public void onCheckedChanged(RadioGroup group, int checkedId) {
             if(checkedId == R.id.finished){
-              task.setState(FINISHED);
+              task.setTaskState(FINISHED);
             }else if(checkedId == R.id.assigned){
-              task.setState(ASSIGNED);
+              task.setTaskState(ASSIGNED);
             }else if(checkedId == R.id.accepted){
-              task.setState(ACCEPTED);
+              task.setTaskState(ACCEPTED);
             }else{
-              task.setState(AVAILABLE);
+              task.setTaskState(ACCEPTED);
             }
           }
         });

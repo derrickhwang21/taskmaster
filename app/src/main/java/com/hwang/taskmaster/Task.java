@@ -1,20 +1,35 @@
 package com.hwang.taskmaster;
 
+import android.text.TextUtils;
+
 import java.io.Serializable;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
 
-import static com.hwang.taskmaster.Task.State.ACCEPTED;
-import static com.hwang.taskmaster.Task.State.ASSIGNED;
-import static com.hwang.taskmaster.Task.State.AVAILABLE;
-import static com.hwang.taskmaster.Task.State.FINISHED;
 
 @Entity
 public class Task implements Serializable {
 
   @PrimaryKey(autoGenerate = true)
   public int id;
+  public String title;
+  public String description;
+  public String finishBy;
+  @TypeConverters(State.class)
+  public State taskState;
+
+  public enum State {
+    AVAILABLE("Available"), ASSIGNED("Assigned"), ACCEPTED("Accepted"), FINISHED("Finished");
+    private final String value;
+
+    State(String value) {
+      this.value = value;
+    }
+
+  }
 
   public String getTitle() {
     return title;
@@ -37,47 +52,20 @@ public class Task implements Serializable {
     return finishBy;
   }
 
+
   public void setFinishBy(String finishBy) {
     this.finishBy = finishBy;
   }
 
-//public boolean isFinished(){
-//    return finished;
+
+//public void setState(State state){
+//    this.State = state;
 //}
 
-public void setFinished(boolean finished){
-    this.finished = finished;
-}
-
-public void setState(State state){
-    this.State = state;
-}
-
-//public void setState(State state) {
-//  switch (state) {
-//    case AVAILABLE:
-//      state.
-//    case ASSIGNED:
-//      return ASSIGNED.value;
-//    case ACCEPTED:
-//      return ACCEPTED.value;
-//    case FINISHED:
-//      return FINISHED.value;
-//  }
-//}
-
-  public String title;
-  public String description;
-  public String finishBy;
-  public boolean finished;
-  public Enum State;
 
 
-//  public Task (String title, String description, String finishBy){
-//    this.title = title;
-//    this.description = description;
-//    this.finishBy = finishBy;
-//  }
+
+
 
   public Task(){}
 
@@ -86,33 +74,23 @@ public void setState(State state){
   }
 
 
-    public enum State {
-    AVAILABLE("Available"), ASSIGNED("Assigned"), ACCEPTED("Accepted"), FINISHED("Finished");
-    private String value;
 
-    private State(String value) {
-      this.value = value;
+  @TypeConverter
+  public static State toState(String state) {
+    if (TextUtils.isEmpty(state)) {
+      return State.AVAILABLE;
+    }
+    return State.valueOf(state);
+  }
+
+    public void setTaskState(State state){
+      this.taskState = state;
     }
 
-
+    public State getState(){
+      return taskState;
     }
 
-
-
-//    public String getState(){
-//      switch(this){
-//        case AVAILABLE:
-//           return AVAILABLE.value;
-//        case ASSIGNED:
-//          return ASSIGNED.value;
-//        case ACCEPTED:
-//          return ACCEPTED.value;
-//        case FINISHED:
-//          return FINISHED.value;
-//      }
-//      return null;
-//    }
-//  }
 
 
 
