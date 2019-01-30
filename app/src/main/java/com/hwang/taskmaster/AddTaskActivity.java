@@ -13,6 +13,8 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Date;
 
+import static com.hwang.taskmaster.Task.State.AVAILABLE;
+
 public class AddTaskActivity extends AppCompatActivity {
 
 
@@ -69,7 +71,7 @@ public class AddTaskActivity extends AppCompatActivity {
         task.setTitle(saveTitle);
         task.setDescription(saveDescription);
         task.setFinishBy(saveFinishBy);
-        task.setFinished(false);
+        task.setTaskState(AVAILABLE);
 
         DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().add(task);
         return null;
