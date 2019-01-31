@@ -26,8 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
-  private FloatingActionButton buttonAddTask;
-  private RecyclerView recyclerView;
+
   /**
    * TODO refactor this into a file to reference and incremement in the future if necessary
    */
@@ -39,40 +38,8 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    recyclerView = findViewById(R.id.recyclerview_tasks);
-    recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-    buttonAddTask = findViewById(R.id.floating_button_add);
-    buttonAddTask.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent intent = new Intent(MainActivity.this, AddTaskActivity.class);
-        startActivity(intent);
-      }
-    });
-
-    getTasks();
   }
 
-  private void getTasks(){
-    class GetTasks extends AsyncTask<Void, Void, List<Task>> {
-
-      @Override
-      protected List<Task> doInBackground(Void... voids){
-        List<Task> taskList = DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().getAll();
-        return taskList;
-      }
-
-      @Override
-      protected void onPostExecute(List<Task> tasks){
-        super.onPostExecute(tasks);
-        TasksAdapter adapter = new TasksAdapter(MainActivity.this, tasks);
-        recyclerView.setAdapter(adapter);
-      }
-    }
-    GetTasks gt = new GetTasks();
-    gt.execute();
-  }
 
   public void onSignInButtonPressed(View v){
     List<AuthUI.IdpConfig> providers = Arrays.asList(
@@ -97,9 +64,13 @@ public class MainActivity extends AppCompatActivity {
 
       if (resultCode == RESULT_OK) {
         // Successfully signed in
+        Intent intent = new Intent(this, AddProjectActivity.class);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String displayName = user.getDisplayName();
         TextView welcomeView = findViewById(R.id.welcomView);
-        welcomeView.setText(user.getDisplayName());
+        intent.putExtra("DISPLAY_NAME" , displayName);
+        welcomeView.setText(displayName);
+        startActivity(intent);
         // ...
       } else {
         // Sign in failed. If response is null the user canceled the
