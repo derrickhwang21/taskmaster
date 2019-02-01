@@ -1,7 +1,6 @@
 package com.hwang.taskmaster;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.TextView;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -19,9 +17,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -64,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
       if (resultCode == RESULT_OK) {
         // Successfully signed in
-        Intent intent = new Intent(this, AddProjectActivity.class);
+        Intent intent = new Intent(this, ProjectActivity.class);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String displayName = user.getDisplayName();
         TextView welcomeView = findViewById(R.id.welcomView);

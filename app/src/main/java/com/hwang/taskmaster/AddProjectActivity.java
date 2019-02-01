@@ -3,69 +3,84 @@ package com.hwang.taskmaster;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.View;
-import android.widget.TextView;
-
-import java.util.List;
 
 public class AddProjectActivity extends AppCompatActivity {
 
-  private FloatingActionButton buttonAddTask;
-  private RecyclerView recyclerView;
+
+  private EditText editTextTitle;
+  private EditText editTextDescription;
+  private EditText editTextFinishBy;
+
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_add_project);
-    recyclerView = findViewById(R.id.recyclerview_tasks);
-    recyclerView.setLayoutManager(new LinearLayoutManager(this));
-    Toolbar toolbar = findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
+    setContentView(R.layout.activity_add_task);
 
-    TextView welcomeViewProject = findViewById(R.id.welcomeAddProject);
-    Intent intent = getIntent();
-    String displayName = intent.getStringExtra("DISPLAY_NAME");
-    displayName = displayName == null ? "UNKOWN" : displayName;
-    welcomeViewProject.setText("Hello: " + displayName);
+    editTextTitle = findViewById(R.id.editTextTask);
+    editTextDescription = findViewById(R.id.editTextDesc);
+    editTextFinishBy = findViewById(R.id.editTextFinishBy);
 
-    buttonAddTask = findViewById(R.id.floating_button_add);
-    buttonAddTask.setOnClickListener(new View.OnClickListener() {
+    findViewById(R.id.button_save).setOnClickListener(new View.OnClickListener(){
       @Override
-      public void onClick(View view) {
-        Intent intent = new Intent(AddProjectActivity.this, AddTaskActivity.class);
-        startActivity(intent);
+      public void onClick(View view){
+        saveTask();
       }
     });
-    getTasks();
   }
 
-  private void getTasks(){
-    class GetTasks extends AsyncTask<Void, Void, List<Task>> {
+  private void saveTask(){
+    final String saveTitle = editTextTitle.getText().toString().trim();
+    final String saveDescription = editTextDescription.getText().toString().trim();
+    final String saveFinishBy = editTextFinishBy.getText().toString().trim();
 
+    if(saveTitle.isEmpty()){
+      editTextTitle.setError("Task Required");
+      editTextTitle.requestFocus();
+      return;
+    }
+
+    if(saveDescription.isEmpty()){
+      editTextDescription.setError("Description Required");
+      editTextDescription.requestFocus();
+      return;
+    }
+
+    if(saveFinishBy.isEmpty()){
+      editTextFinishBy.setError("Finish By Require");
+      editTextFinishBy.requestFocus();
+      return;
+    }
+
+    class Savetask extends AsyncTask<Void, Void, Void> {
       @Override
-      protected List<Task> doInBackground(Void... voids){
-        List<Task> taskList = DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().getAll();
-        return taskList;
+      protected Void doInBackground(Void... voids){
+        Task task = new Task();
+        task.setTitle(saveTitle);
+        task.setDescription(saveDescription);
+        task.setFinishBy(saveFinishBy);
+        task.setTaskState(null);
+
+        DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().add(task);
+        return null;
       }
 
       @Override
-      protected void onPostExecute(List<Task> tasks){
-        super.onPostExecute(tasks);
-        TasksAdapter adapter = new TasksAdapter(AddProjectActivity.this, tasks);
-        recyclerView.setAdapter(adapter);
+      protected void onPostExecute(Void aVoid){
+        super.onPostExecute(aVoid);
+        finish();
+        startActivity(new Intent(getApplicationContext(), ProjectActivity.class));
+        Toast.makeText(getApplicationContext(), "Created", Toast.LENGTH_LONG).show();
       }
     }
-    GetTasks gt = new GetTasks();
-    gt.execute();
-  }
 
+    Savetask st = new Savetask();
+    st.execute();
+  }
 }

@@ -10,11 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".AddProjectActivity"
+            android:name=".ProjectActivity"
             android:label="@string/title_activity_add_project"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".UpdateTaskActivity" />
         <activity android:name=".AddTaskActivity" />
+        <activity android:name=".AddProjectActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

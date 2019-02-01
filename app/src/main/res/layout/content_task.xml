@@ -5,25 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".AddProjectActivity"
-    tools:showIn="@layout/activity_add_project">
-
-    <LinearLayout
-        android:id="@+id/welcomeAddProjectLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/welcomeAddProject"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Welcome"
-            android:textAlignment="center"
-            android:textSize="24sp" />
-    </LinearLayout>
+    tools:context=".TaskActivity"
+    tools:showIn="@layout/activity_task">
 
     <androidx.recyclerview.widget.RecyclerView
         app:layout_constraintTop_toBottomOf="@id/welcomeAddProjectLayout"
@@ -32,6 +15,5 @@
         android:layout_height="match_parent" >
 
     </androidx.recyclerview.widget.RecyclerView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
