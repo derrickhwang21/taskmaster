@@ -8,11 +8,11 @@ import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
 
 
-@Entity
+@Entity(tableName = "task")
 public class Task implements Serializable {
 
   @PrimaryKey(autoGenerate = true)
-  public int id;
+  public long taskId;
   public String title;
   public String description;
   public String finishBy;
