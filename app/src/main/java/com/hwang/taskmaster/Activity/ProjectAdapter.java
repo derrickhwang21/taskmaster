@@ -95,7 +95,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
     public void onClick(View view) {
       Project project = projectList.get(getAdapterPosition());
 
-      Intent intent = new Intent(myContext, UpdateProjectActivity.class);
+      Intent intent = new Intent(myContext, TaskActivity.class);
       intent.putExtra("project", project);
 
 

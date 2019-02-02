@@ -13,6 +13,10 @@
             android:name=".Activity.ProjectActivity"
             android:label="@string/title_activity_add_project"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Activity.TaskActivity"
+            android:label="@string/title_activity_add_task"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Activity.UpdateTaskActivity" />
         <activity android:name=".Activity.UpdateProjectActivity" />
         <activity android:name=".Activity.AddTaskActivity" />

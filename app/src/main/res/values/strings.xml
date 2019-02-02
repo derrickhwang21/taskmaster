@@ -92,4 +92,6 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_activity_add_project">Add Project Activity</string>
+    <string name="title_activity_add_task">Add Task Activity</string>
+
 </resources>
