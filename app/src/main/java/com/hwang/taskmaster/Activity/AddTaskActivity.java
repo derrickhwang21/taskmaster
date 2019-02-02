@@ -1,4 +1,6 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Activity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -7,9 +9,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.hwang.taskmaster.Database.DatabaseClient;
+import com.hwang.taskmaster.Database.Task;
+import com.hwang.taskmaster.R;
 
-public class AddProjectActivity extends AppCompatActivity {
+public class AddTaskActivity extends AppCompatActivity {
 
 
   private EditText editTextTitle;
@@ -75,8 +79,8 @@ public class AddProjectActivity extends AppCompatActivity {
       protected void onPostExecute(Void aVoid){
         super.onPostExecute(aVoid);
         finish();
-        startActivity(new Intent(getApplicationContext(), ProjectActivity.class));
-        Toast.makeText(getApplicationContext(), "Created", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
       }
     }
 

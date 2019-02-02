@@ -1,7 +1,4 @@
-package com.hwang.taskmaster;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
+package com.hwang.taskmaster.Activity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -10,12 +7,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.Calendar;
-import java.util.Date;
+import com.hwang.taskmaster.Database.DatabaseClient;
+import com.hwang.taskmaster.Database.Task;
+import com.hwang.taskmaster.R;
 
-import static com.hwang.taskmaster.Task.State.AVAILABLE;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class AddTaskActivity extends AppCompatActivity {
+public class AddProjectActivity extends AppCompatActivity {
 
 
   private EditText editTextTitle;
@@ -81,8 +79,8 @@ public class AddTaskActivity extends AppCompatActivity {
       protected void onPostExecute(Void aVoid){
         super.onPostExecute(aVoid);
         finish();
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-        Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(getApplicationContext(), ProjectActivity.class));
+        Toast.makeText(getApplicationContext(), "Created", Toast.LENGTH_LONG).show();
       }
     }
 

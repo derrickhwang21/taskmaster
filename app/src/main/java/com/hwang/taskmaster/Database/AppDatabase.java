@@ -1,4 +1,4 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Database;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;

@@ -1,4 +1,6 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Database;
+
+import com.hwang.taskmaster.Database.Project;
 
 import java.util.List;
 

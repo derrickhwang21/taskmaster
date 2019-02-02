@@ -47,3 +47,5 @@ Update Task          |  Home After Update
  1/29/2019: Added in button group and enum type properties to entity model. 
  
  1/30/2019: Finished enum properties, added in state converter class, refactored adapter and activity, updated readme. 
+
+

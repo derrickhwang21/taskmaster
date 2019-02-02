@@ -1,4 +1,4 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Database;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public interface TaskDao {
   @Query("SELECT * FROM task")
   List<Task> getAll();
 
-  @Query("SELECT * FROM task WHERE id=:id")
+  @Query("SELECT * FROM task WHERE taskId=:id")
   Task getById(long id);
 
   @Insert

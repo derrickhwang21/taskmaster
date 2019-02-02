@@ -1,4 +1,4 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.hwang.taskmaster.Database.Project;
+import com.hwang.taskmaster.R;
 
 import java.util.List;
 

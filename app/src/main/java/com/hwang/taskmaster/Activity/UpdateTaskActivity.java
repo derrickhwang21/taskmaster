@@ -1,24 +1,26 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Activity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.sip.SipSession;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import static com.hwang.taskmaster.Task.State.ACCEPTED;
-import static com.hwang.taskmaster.Task.State.ASSIGNED;
-import static com.hwang.taskmaster.Task.State.AVAILABLE;
-import static com.hwang.taskmaster.Task.State.FINISHED;
+import com.hwang.taskmaster.Database.DatabaseClient;
+import com.hwang.taskmaster.Database.Task;
+import com.hwang.taskmaster.R;
+
+import static com.hwang.taskmaster.Database.Task.State.ACCEPTED;
+import static com.hwang.taskmaster.Database.Task.State.ASSIGNED;
+import static com.hwang.taskmaster.Database.Task.State.AVAILABLE;
+import static com.hwang.taskmaster.Database.Task.State.FINISHED;
 
 public class UpdateTaskActivity extends AppCompatActivity {
 

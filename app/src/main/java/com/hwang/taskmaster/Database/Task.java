@@ -1,5 +1,7 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Database;
 
+
+import com.hwang.taskmaster.Database.StateConverter;
 
 import java.io.Serializable;
 
@@ -22,7 +24,7 @@ public class Task implements Serializable {
   public Task(){}
 
   public enum State {AVAILABLE("AVAILABLE"), ASSIGNED("ASSIGNED"), ACCEPTED("ACCEPTED"), FINISHED("FINISHED");
-    protected final String value;
+    public final String value;
     State(String value) {
       this.value = value;}}
 
