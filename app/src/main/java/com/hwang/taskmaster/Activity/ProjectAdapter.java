@@ -3,8 +3,10 @@ package com.hwang.taskmaster.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.hwang.taskmaster.Database.Project;
@@ -33,11 +35,44 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
   }
 
   @Override
-  public void onBindViewHolder(ProjectViewHolder holder, int position){
+  public void onBindViewHolder(final ProjectViewHolder holder, int position){
     Project t = projectList.get(position);
 
 
     holder.projectViewTitles.setText(t.getTitle());
+
+    holder.projectViewOption.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+
+        //creating a popup menu
+        PopupMenu popup = new PopupMenu(myContext, holder.projectViewOption);
+        //inflating menu from xml resource
+        popup.inflate(R.menu.options_menu);
+        //adding click listener
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+          @Override
+          public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()) {
+              case R.id.menu1:
+                Project project = projectList.get(holder.getAdapterPosition());
+
+                Intent intent = new Intent(myContext, UpdateProjectActivity.class);
+                intent.putExtra("project", project);
+
+
+                myContext.startActivity(intent);
+                return true;
+              default:
+                return false;
+            }
+          }
+        });
+        //displaying the popup
+        popup.show();
+
+      }
+    });
 
   }
 
@@ -47,11 +82,12 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
   }
 
   class ProjectViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    TextView projectViewTitles;
+    TextView projectViewTitles, projectViewOption;
 
     public ProjectViewHolder(View itemView){
       super(itemView);
       projectViewTitles = itemView.findViewById(R.id.textViewProject);
+      projectViewOption = itemView.findViewById(R.id.textViewOptions);
       itemView.setOnClickListener(this);
     }
 
