@@ -51,11 +51,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
 
     public ProjectViewHolder(View itemView){
       super(itemView);
-
-
       projectViewTitles = itemView.findViewById(R.id.textViewProject);
-
-
       itemView.setOnClickListener(this);
     }
 
@@ -63,7 +59,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
     public void onClick(View view) {
       Project project = projectList.get(getAdapterPosition());
 
-      Intent intent = new Intent(myContext, UpdateTaskActivity.class);
+      Intent intent = new Intent(myContext, UpdateProjectActivity.class);
       intent.putExtra("project", project);
 
 

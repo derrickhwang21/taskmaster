@@ -14,6 +14,7 @@
             android:label="@string/title_activity_add_project"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Activity.UpdateTaskActivity" />
+        <activity android:name=".Activity.UpdateProjectActivity" />
         <activity android:name=".Activity.AddTaskActivity" />
         <activity android:name=".Activity.AddProjectActivity" />
         <activity

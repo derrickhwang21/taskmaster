@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.hwang.taskmaster.Database.DatabaseClient;
+import com.hwang.taskmaster.Database.Project;
+import com.hwang.taskmaster.Database.ProjectDatabaseClient;
 import com.hwang.taskmaster.Database.Task;
 import com.hwang.taskmaster.R;
 
@@ -16,62 +18,54 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AddProjectActivity extends AppCompatActivity {
 
 
-  private EditText editTextTitle;
-  private EditText editTextDescription;
-  private EditText editTextFinishBy;
+  private EditText editTextTitleProject;
+  private EditText editTextDescriptionProject;
 
 
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_add_task);
+    setContentView(R.layout.activity_add_project);
 
-    editTextTitle = findViewById(R.id.editTextTask);
-    editTextDescription = findViewById(R.id.editTextDesc);
-    editTextFinishBy = findViewById(R.id.editTextFinishBy);
+    editTextTitleProject = findViewById(R.id.editTextProject);
+    editTextDescriptionProject = findViewById(R.id.editTextDescProject);
 
-    findViewById(R.id.button_save).setOnClickListener(new View.OnClickListener(){
+
+    findViewById(R.id.button_save_project).setOnClickListener(new View.OnClickListener(){
       @Override
       public void onClick(View view){
-        saveTask();
+        saveProject();
       }
     });
   }
 
-  private void saveTask(){
-    final String saveTitle = editTextTitle.getText().toString().trim();
-    final String saveDescription = editTextDescription.getText().toString().trim();
-    final String saveFinishBy = editTextFinishBy.getText().toString().trim();
+  private void saveProject(){
+    final String saveTitle = editTextTitleProject.getText().toString().trim();
+    final String saveDescription = editTextDescriptionProject.getText().toString().trim();
 
     if(saveTitle.isEmpty()){
-      editTextTitle.setError("Task Required");
-      editTextTitle.requestFocus();
+      editTextTitleProject.setError("Project Required");
+      editTextTitleProject.requestFocus();
       return;
     }
 
     if(saveDescription.isEmpty()){
-      editTextDescription.setError("Description Required");
-      editTextDescription.requestFocus();
+      editTextDescriptionProject.setError("Description Required");
+      editTextDescriptionProject.requestFocus();
       return;
     }
 
-    if(saveFinishBy.isEmpty()){
-      editTextFinishBy.setError("Finish By Require");
-      editTextFinishBy.requestFocus();
-      return;
-    }
 
-    class Savetask extends AsyncTask<Void, Void, Void> {
+    class SaveProject extends AsyncTask<Void, Void, Void> {
       @Override
       protected Void doInBackground(Void... voids){
-        Task task = new Task();
-        task.setTitle(saveTitle);
-        task.setDescription(saveDescription);
-        task.setFinishBy(saveFinishBy);
-        task.setTaskState(null);
+        Project project = new Project();
+        project.setTitle(saveTitle);
+        project.setDescription(saveDescription);
 
-        DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().add(task);
+
+        ProjectDatabaseClient.getInstance(getApplicationContext()).getProjectDatabase().projectDao().insertProject(project);
         return null;
       }
 
@@ -84,7 +78,7 @@ public class AddProjectActivity extends AppCompatActivity {
       }
     }
 
-    Savetask st = new Savetask();
-    st.execute();
+    SaveProject sp = new SaveProject();
+    sp.execute();
   }
 }

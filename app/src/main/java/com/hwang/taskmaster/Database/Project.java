@@ -20,6 +20,15 @@ public class Project implements Serializable {
   }
 
   public String title;
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
   public String description;
 
   // Default constructor

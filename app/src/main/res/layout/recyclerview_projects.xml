@@ -22,12 +22,6 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview_tasks_titles"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-            </androidx.recyclerview.widget.RecyclerView>
 
 
         </LinearLayout>
