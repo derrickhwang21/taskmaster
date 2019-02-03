@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.hwang.taskmaster.Database.DatabaseClient;
+import com.hwang.taskmaster.Database.Project;
 import com.hwang.taskmaster.Database.Task;
 import com.hwang.taskmaster.R;
 
@@ -28,6 +29,8 @@ public class TaskActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    final String projectTitle = getIntent().getStringExtra("project");
+
     setContentView(R.layout.activity_task);
     recyclerView = findViewById(R.id.recyclerview_tasks);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -37,6 +40,7 @@ public class TaskActivity extends AppCompatActivity {
       @Override
       public void onClick(View view) {
         Intent intent = new Intent(TaskActivity.this, AddTaskActivity.class);
+        intent.putExtra("project", projectTitle);
         startActivity(intent);
       }
     });

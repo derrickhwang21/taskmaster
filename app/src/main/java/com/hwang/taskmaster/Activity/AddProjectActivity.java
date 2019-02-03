@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.hwang.taskmaster.Database.DatabaseClient;
@@ -80,9 +81,12 @@ public class AddProjectActivity extends AppCompatActivity {
         ProjectDatabaseClient.getInstance(getApplicationContext()).getProjectDatabase().projectDao().insertProject(project);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference projects = db.collection("project");
         Map<String, Object> fProjectObject = new HashMap<>();
         fProjectObject.put("title", saveTitle);
         fProjectObject.put("desc", saveDescription);
+        projects.document(saveTitle).set(fProjectObject);
+
 
         db.collection("project")
                 .add(fProjectObject)

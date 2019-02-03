@@ -37,10 +37,7 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
   @Override
   public void onBindViewHolder(final ProjectViewHolder holder, int position){
     Project t = projectList.get(position);
-
-
     holder.projectViewTitles.setText(t.getTitle());
-
     holder.projectViewOption.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -96,7 +93,8 @@ public class ProjectAdapter extends RecyclerView.Adapter<ProjectAdapter.ProjectV
       Project project = projectList.get(getAdapterPosition());
 
       Intent intent = new Intent(myContext, TaskActivity.class);
-      intent.putExtra("project", project);
+      intent.putExtra("project", project.title);
+
 
 
       myContext.startActivity(intent);

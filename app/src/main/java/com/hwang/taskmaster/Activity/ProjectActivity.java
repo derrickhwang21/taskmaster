@@ -32,6 +32,7 @@ public class ProjectActivity extends AppCompatActivity {
   private FloatingActionButton buttonAddProject;
   private RecyclerView recyclerView;
   private static final String TAG = "ProjectActivity";
+  private List<Project> projectList;
 
 
   @Override
@@ -40,6 +41,7 @@ public class ProjectActivity extends AppCompatActivity {
     setContentView(R.layout.activity_project);
     recyclerView = findViewById(R.id.recyclerview_projects);
     recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
     Toolbar toolbar = findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
@@ -65,7 +67,7 @@ public class ProjectActivity extends AppCompatActivity {
 
       @Override
       protected List<Project> doInBackground(Void... voids){
-        List<Project> projectList = ProjectDatabaseClient.getInstance(getApplicationContext()).getProjectDatabase().projectDao().getAll();
+         projectList = ProjectDatabaseClient.getInstance(getApplicationContext()).getProjectDatabase().projectDao().getAll();
         return projectList;
       }
 
