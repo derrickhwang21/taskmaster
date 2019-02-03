@@ -4,17 +4,24 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.hwang.taskmaster.Database.Project;
 import com.hwang.taskmaster.Database.ProjectDatabaseClient;
 import com.hwang.taskmaster.R;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -24,6 +31,8 @@ public class ProjectActivity extends AppCompatActivity {
 
   private FloatingActionButton buttonAddProject;
   private RecyclerView recyclerView;
+  private static final String TAG = "ProjectActivity";
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +68,27 @@ public class ProjectActivity extends AppCompatActivity {
         List<Project> projectList = ProjectDatabaseClient.getInstance(getApplicationContext()).getProjectDatabase().projectDao().getAll();
         return projectList;
       }
+
+//      @Override
+//      protected List<Project> doInBackground(Void... voids){
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        List<Project> projectList = db.collection("project")
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                  @Override
+//                  public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                    if(task.isSuccessful()){
+//                      for(QueryDocumentSnapshot document : task.getResult()){
+//                        Log.d(TAG, document.getId() + " => " + document.getData());
+//                      }
+//                    }
+//                    else{
+//                      Log.w(TAG, "Error getting documents.", task.getException());
+//                    }
+//                  }
+//                });
+//        return projectList;
+//      }
 
       @Override
       protected void onPostExecute(List<Project> projects){

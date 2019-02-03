@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.hwang.taskmaster.R;
 
 
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
   private static final int RC_SIGN_IN = 3742;
   private FirebaseAuth mFirebaseAuth;
   private FirebaseUser mFirebaseUser;
+
+
 
 
   @Override
