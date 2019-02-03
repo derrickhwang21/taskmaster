@@ -101,9 +101,9 @@ public class AddTaskActivity extends AppCompatActivity {
         fireTask.put("state", null);
 
         taskReference.collection("tasks")
-                .document(projectTitle).set(fireTask);
+                .document(saveTitle).set(fireTask);
 
-
+        
         DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().add(task);
         return null;
       }
@@ -112,7 +112,7 @@ public class AddTaskActivity extends AppCompatActivity {
       protected void onPostExecute(Void aVoid){
         super.onPostExecute(aVoid);
         finish();
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        startActivity(new Intent(getApplicationContext(), TaskActivity.class));
         Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
       }
     }
