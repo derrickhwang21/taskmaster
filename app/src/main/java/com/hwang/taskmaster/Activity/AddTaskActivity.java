@@ -33,7 +33,6 @@ public class AddTaskActivity extends AppCompatActivity {
   private EditText editTextDescription;
   private EditText editTextFinishBy;
   private String projectTitle;
-  private String projectDescription;
   private static final String TAG = "AddTaskActivity";
 
 
@@ -91,6 +90,7 @@ public class AddTaskActivity extends AppCompatActivity {
         task.setDescription(saveDescription);
         task.setFinishBy(saveFinishBy);
         task.setTaskState(null);
+        task.setProjecTitle(projectTitle);
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         DocumentReference taskReference = db.collection("project").document(projectTitle);
@@ -99,11 +99,12 @@ public class AddTaskActivity extends AppCompatActivity {
         fireTask.put("description", saveDescription);
         fireTask.put("finishBy", saveFinishBy);
         fireTask.put("state", null);
+        fireTask.put("projectTitle", projectTitle);
 
         taskReference.collection("tasks")
                 .document(saveTitle).set(fireTask);
 
-        
+
         DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().add(task);
         return null;
       }

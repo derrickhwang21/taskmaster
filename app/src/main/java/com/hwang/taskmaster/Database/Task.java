@@ -20,6 +20,7 @@ public class Task implements Serializable {
   public String finishBy;
   @TypeConverters(StateConverter.class)
   public State taskState;
+  public String projectReference;
 
   public Task(){}
 
@@ -43,6 +44,10 @@ public class Task implements Serializable {
   public State getState(){ return taskState;}
 
   public void setTaskState(State state){ this.taskState = state;}
+
+  public String getProjecTitle() { return projectReference; }
+
+  public void setProjecTitle(String projectReference) { this.projectReference = projectReference; }
 
   public String toString(){ return "Task name: " + title + " Description: " + description +  " Finish by: " + finishBy;}
 

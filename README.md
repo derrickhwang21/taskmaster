@@ -40,6 +40,10 @@ Update Task          |  Home After Update
  
  [Type Converter - 2](https://stackoverflow.com/questions/44498616/android-architecture-components-using-enums)
  
+ [Document Reference - Sub Collection](https://stackoverflow.com/questions/47514419/how-to-add-subcollection-to-a-document-in-firebase-cloud-firestore)
+ 
+ [Document Reference](https://codelabs.developers.google.com/codelabs/firestore-android/#6)
+ 
  ## ChangeLog
  
  1/28/2019: Initial project setup(layout, room, migrate to androidX, activity adding and deleting tasks)

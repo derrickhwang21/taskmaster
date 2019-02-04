@@ -4,16 +4,26 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
 import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.hwang.taskmaster.Database.Project;
 import com.hwang.taskmaster.Database.ProjectDatabaseClient;
 import com.hwang.taskmaster.R;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -22,6 +32,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class UpdateProjectActivity extends AppCompatActivity {
 
   private EditText editProjectTitle, editProjectDescription;
+  private String projectTitle;
+  private static final String TAG = "UpdateProjectActivity";
 
 
 
@@ -35,6 +47,7 @@ public class UpdateProjectActivity extends AppCompatActivity {
 
 
     final Project project = (Project) getIntent().getSerializableExtra("project");
+    projectTitle = project.title;
 
     loadProject(project);
 
@@ -102,7 +115,12 @@ public class UpdateProjectActivity extends AppCompatActivity {
       protected Void doInBackground(Void... voids){
         project.setTitle(sProject);
         project.setDescription(sPDesc);
-
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        CollectionReference projects = db.collection("project");
+        Map<String, Object> fProjectObject = new HashMap<>();
+        fProjectObject.put("title", sProject);
+        fProjectObject.put("desc", sPDesc);
+        projects.document(sProject).set(fProjectObject);
 
         ProjectDatabaseClient.getInstance(getApplicationContext()).getProjectDatabase().projectDao().updateProject(project);
         return null;
@@ -126,6 +144,21 @@ public class UpdateProjectActivity extends AppCompatActivity {
       @Override
       protected Void doInBackground(Void... voids){
         ProjectDatabaseClient.getInstance(getApplicationContext()).getProjectDatabase().projectDao().deleteProject(project);
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference projectReference = db.collection("project").document(projectTitle);
+        projectReference.delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                  @Override
+                  public void onSuccess(Void aVoid) {
+                    Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                  }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                  @Override
+                  public void onFailure(@NonNull Exception e) {
+                    Log.w(TAG, "Error deleting document", e);
+                  }
+                });
         return null;
       }
 

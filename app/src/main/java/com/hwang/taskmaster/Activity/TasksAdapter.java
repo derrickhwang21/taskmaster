@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.hwang.taskmaster.Database.Project;
 import com.hwang.taskmaster.Database.Task;
 import com.hwang.taskmaster.R;
 
@@ -21,9 +22,11 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
   private List<Task> taskList;
 
 
+
   public TasksAdapter(Context myContext, List<Task> taskList){
     this.myContext = myContext;
     this.taskList = taskList;
+
   }
 
   @Override
@@ -66,6 +69,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
     @Override
     public void onClick(View view) {
       Task task = taskList.get(getAdapterPosition());
+
 
       Intent intent = new Intent(myContext, UpdateTaskActivity.class);
       intent.putExtra("task", task);

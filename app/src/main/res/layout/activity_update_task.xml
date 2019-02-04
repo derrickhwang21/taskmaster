@@ -21,11 +21,10 @@
             android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
 
-        <EditText
+        <TextView
             android:id="@+id/editTextTask"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="task?" />
+            android:layout_height="wrap_content" />
 
         <EditText
             android:id="@+id/editTextDesc"
@@ -67,11 +66,7 @@
                 android:layout_height="wrap_content"
                 android:text="Finished"/>
         </RadioGroup>
-        <!--<CheckBox-->
-            <!--android:id="@+id/checkBoxFinished"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Mark as finished" />-->
+
 
         <Button
             android:id="@+id/button_update"

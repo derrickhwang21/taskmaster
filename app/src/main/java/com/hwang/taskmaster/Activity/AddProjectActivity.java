@@ -88,20 +88,6 @@ public class AddProjectActivity extends AppCompatActivity {
         projects.document(saveTitle).set(fProjectObject);
 
 
-//        db.collection("project")
-//                .add(fProjectObject)
-//                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-//                  @Override
-//                  public void onSuccess(DocumentReference documentReference) {
-//                    Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-//                  }
-//                })
-//                .addOnFailureListener(new OnFailureListener(){
-//                  @Override
-//                  public void onFailure(@NonNull Exception e){
-//                    Log.w(TAG, "Error adding document", e);
-//                  }
-//                });
         return null;
       }
 

@@ -11,11 +11,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.hwang.taskmaster.Database.DatabaseClient;
 import com.hwang.taskmaster.Database.Task;
 import com.hwang.taskmaster.R;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.hwang.taskmaster.Database.Task.State.ACCEPTED;
 import static com.hwang.taskmaster.Database.Task.State.ASSIGNED;
@@ -24,15 +30,18 @@ import static com.hwang.taskmaster.Database.Task.State.FINISHED;
 
 public class UpdateTaskActivity extends AppCompatActivity {
 
-  private EditText editTextTitle, editTextDescription, editTextFinishBy;
+  private EditText  editTextDescription, editTextFinishBy;
+  private TextView editTextTitle;
   private RadioGroup checkRadioState;
   private RadioButton available, assigned, accepted, finished;
+  private Task.State currentState = AVAILABLE;
 
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_update_task);
+
 
     editTextTitle = findViewById(R.id.editTextTask);
     editTextDescription = findViewById(R.id.editTextDesc);
@@ -83,12 +92,16 @@ public class UpdateTaskActivity extends AppCompatActivity {
       @Override
       public void onCheckedChanged(RadioGroup group, int checkedId) {
         if(checkedId == R.id.finished){
+          currentState = FINISHED;
           task.setTaskState(FINISHED);
         }else if(checkedId == R.id.assigned){
+          currentState = ASSIGNED;
           task.setTaskState(ASSIGNED);
         }else if(checkedId == R.id.accepted){
+          currentState = ACCEPTED;
           task.setTaskState(ACCEPTED);
         }else{
+          currentState = AVAILABLE;
           task.setTaskState(AVAILABLE);
         }
       }
@@ -158,6 +171,18 @@ public class UpdateTaskActivity extends AppCompatActivity {
         task.setDescription(sDesc);
         task.setFinishBy(sFinishBy);
 
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference taskReference = db.collection("project").document(task.getProjecTitle());
+        Map<String, Object> fireTask = new HashMap<>();
+        fireTask.put("name", sTask);
+        fireTask.put("description", sDesc);
+        fireTask.put("finishBy", sFinishBy);
+        fireTask.put("state", currentState);
+        fireTask.put("projectTitle", task.getProjecTitle());
+
+        taskReference.collection("tasks")
+                .document(sTask).set(fireTask);
+
 
         DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().update(task);
         return null;
@@ -189,7 +214,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
         super.onPostExecute(aVoid);
         Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_LONG);
         finish();
-        startActivity(new Intent(UpdateTaskActivity.this, MainActivity.class));
+        startActivity(new Intent(UpdateTaskActivity.this, TaskActivity.class));
       }
     }
 
