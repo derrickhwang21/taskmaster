@@ -3,16 +3,30 @@ Building an Android Task Master App. Which allows tracking tasks on a project.
 
 ## Feature Task
 
-### Feature Tasks
+* [Fire Base Functionality](#Fire-Base-Functionality)
+* [User Login](#User-Login)
+* [User Projects in Firebase Database](#User-Projects-in-Firebase-Database)
+* [User Tasks in Firebase Database](#User-Tasks-in-Firebase-Database)
+* [User ability to assign task](#User-ability-to-assign-task)
+* [Database Structure](#Database-Structure)
+* [Cloud Function](#Cloud-Function)
+* [Accessibility Scanner Result](#Accessibility-Scanner-Result)
+* [APk File](#APk-File)
+* [Credit/Sources](#Credit/Sources)
+* [ChangeLog](#ChangeLog)
+
 
 
 ## Fire Base Functionality
 
 Firebase as a backend for our TaskMaster App
 
+
 Home          |  User Welcome Screen |  Home After Add
 :-------------------------:|:-------------------------: | :--------------------------------:
 ![sc-home](assets/firebase-add-project.png)  |  ![sc-add-project](assets/firebase-addproject1.png) | ![sc-home-project](assets/firebase-addproject2.png)
+
+
 
 #### User Login 
 
@@ -22,9 +36,12 @@ Welcome Page          |  SignIn with email or google |  User Welcome Page
 :-------------------------:|:-------------------------: | :--------------------------------:
 ![sc-home](assets/firebase-signin1.png)  |  ![sc-add-project](assets/firebase-signin2.png) | ![sc-home-project](assets/firebase-signin3.png)
 
+
+
 #### User Projects in Firebase Database
 
 User created projects in Firestore cloud database
+
 
 Add Project          |  Firebase Project
 :-------------------------:|:-------------------------:
@@ -48,6 +65,7 @@ Ability to allow users to "Assign" a task to themself
 
 The user assgined to a task should be able to "Accept" that task, and later "Finish" that task. 
 
+
 Update Task          |  Assign Task |  Task After Update
 :-------------------------:|:-------------------------: | :--------------------------------:
 ![sc-home](assets/firebase-updatetask.png)  |  ![sc-add-project](assets/firebase-updatetask2.png) | ![sc-home-project](assets/firebase-updatetask3.png)
@@ -56,7 +74,10 @@ Firebase Task          |  Firebase Task After
 :-------------------------:|:-------------------------:
 ![sc-add-task](assets/firebase-snip-task.PNG)  |  ![sc-add-task-after](assets/firebase-snip-task2.PNG)
 
+
+
 ## Database Structure
+
 
 * Project
 
@@ -79,6 +100,8 @@ Firebase Task          |  Firebase Task After
 | taskState | State |
 | projectReference | String |
 
+
+
 ## Cloud Function
 
 #### View all Tasks assigned to them on a screen
@@ -89,7 +112,10 @@ Firebase Task          |  Firebase Task After
 
 [Path to Cloud Functions](/cloud-functions)
 
+
+
 ## Accessibility Scanner Result
+
 
 Report 1          |  Report 2 |  Report 3
 :-------------------------:|:-------------------------: | :--------------------------------:
@@ -101,11 +127,14 @@ Report 4          |  Report 5 |  Report 6
 ![scanner](assets/scanner-result3.png)  |  ![scanner](assets/scanner-result4.png) | ![scanner](assets/scanner-result5.png)
 [See Report](assets/accessibility-report/report4.txt)  |  [See Report](assets/accessibility-report/report5.txt) | [See Report](assets/accessibility-report/report6.txt)
 
+
+
 ## APk File
 
 Go To APK : [Build Files](app/build/outputs)
 
 ## Credit/Sources 
+
 [RecyclerView](https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465)
 
 [Material Icons](http://google.github.io/material-design-icons/)
@@ -131,6 +160,8 @@ Go To APK : [Build Files](app/build/outputs)
  
  [Accessibility Scanner](https://developer.android.com/guide/topics/ui/accessibility/)
  
+ 
+ 
  ## ChangeLog
  
  1/28/2019: Initial project setup(layout, room, migrate to androidX, activity adding and deleting tasks)
@@ -146,5 +177,3 @@ Go To APK : [Build Files](app/build/outputs)
  2/02/2019: Added in Firestore and completed add, delete functionality to Firestore database. 
  
  2/03/2019: Updated readme and added in Firebase update functionality , added cloud functions, added sample of how data is stored in firestore, generated apk and apk bundle, updated accessibility reference (focusable, contentDescription, hint), ran accessibility scanner
-
-
