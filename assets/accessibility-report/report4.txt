@@ -1,0 +1,6 @@
+The following is a list of opportunities to improve the accessibility of My Application. Each item corresponds to an outlined area on the attached screenshot.
+
+Touch target
+com.hwang.taskmaster:id/textViewOptions
+This item's height is 29dp. Consider making the height of this touch target 48dp or larger. A parent container may be handling touch events for this item. If selecting the larger container performs the same action as selecting this item, consider defining this item as not clickable. If a different action is performed, consider increasing the size of this item.
+
