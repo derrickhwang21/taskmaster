@@ -56,6 +56,30 @@ Firebase Task          |  Firebase Task After
 :-------------------------:|:-------------------------:
 ![sc-add-task](assets/firebase-snip-task.PNG)  |  ![sc-add-task-after](assets/firebase-snip-task2.PNG)
 
+## Database Structure
+
+* Project
+
+|  Field |  Type    |
+|-------------|------------|
+| projectId  | Long  |
+| taskId | long |
+| title | String |
+| description  | String |
+
+
+* Task
+
+|  Field      |  Type      |
+|-------------|------------|
+| taskId  | Long  |
+| title | String  |
+| description | String |
+| finishBy   | finishBy |
+| taskState | State |
+| projectReference | String |
+
+
 
 ## Credit/Sources 
 [RecyclerView](https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465)
