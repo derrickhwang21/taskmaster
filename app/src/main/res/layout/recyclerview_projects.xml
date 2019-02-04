@@ -32,7 +32,9 @@
                 android:paddingLeft="40dp"
                 android:paddingRight="10dp"
                 android:text="&#8942;"
-                android:textAppearance="?android:textAppearanceLarge" />
+                android:textAppearance="?android:textAppearanceLarge"
+                android:focusable="true"
+                android:labelFor="@string/options"/>
 
 
 

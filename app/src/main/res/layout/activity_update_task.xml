@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Update Task"
+            android:text="@string/update_task"
             android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
 
@@ -30,7 +30,7 @@
             android:id="@+id/editTextDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="description..." />
+            android:hint="@string/edit_description" />
 
 
 
@@ -38,7 +38,7 @@
             android:id="@+id/editTextFinishBy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="finish by?" />
+            android:hint="@string/edit_finishby" />
 
         <RadioGroup
             android:id="@+id/radioStatus"
@@ -49,22 +49,26 @@
                 android:id="@+id/available"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Available"/>
+                android:focusable="true"
+                android:text="@string/Accepted"/>
             <RadioButton
                 android:id="@+id/assigned"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Assigned"/>
+                android:focusable="true"
+                android:text="@string/Accepted"/>
             <RadioButton
                 android:id="@+id/accepted"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Accepted"/>
+                android:focusable="true"
+                android:text="@string/Accepted"/>
             <RadioButton
                 android:id="@+id/finished"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Finished"/>
+                android:focusable="true"
+                android:text="@string/Finished"/>
         </RadioGroup>
 
 
