@@ -79,6 +79,15 @@ Firebase Task          |  Firebase Task After
 | taskState | State |
 | projectReference | String |
 
+## Cloud Function
+
+#### View all Tasks assigned to them on a screen
+
+[Show Projects](https://us-central1-taskmaster-9484b.cloudfunctions.net/showCollections)
+
+[Show Tasks](https://us-central1-taskmaster-9484b.cloudfunctions.net/getAllTasks)
+
+[Path to Cloud Functions](/cloud-functions)
 
 
 ## Credit/Sources 
@@ -101,6 +110,10 @@ Firebase Task          |  Firebase Task After
  
  [Document Reference](https://codelabs.developers.google.com/codelabs/firestore-android/#6)
  
+ [Cloud Function - Reading from Firestore](https://stackoverflow.com/questions/48375904/read-data-from-cloud-firestore-with-firebase-cloud-function/49516133#49516133)
+ 
+ [Cloud function](https://firebase.google.com/docs/functions/functions-and-firebase#cloud_functions_for_firebase)
+ 
  ## ChangeLog
  
  1/28/2019: Initial project setup(layout, room, migrate to androidX, activity adding and deleting tasks)
@@ -115,6 +128,6 @@ Firebase Task          |  Firebase Task After
  
  2/02/2019: Added in Firestore and completed add, delete functionality to Firestore database. 
  
- 2/03/2019: Updated readme and added in Firebase update functionality 
+ 2/03/2019: Updated readme and added in Firebase update functionality , added cloud functions, added sample of how data is stored in firestore
 
 
