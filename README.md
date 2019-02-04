@@ -5,23 +5,6 @@ Building an Android Task Master App. Which allows tracking tasks on a project.
 
 ### Feature Tasks
 
-#### Create Project
-
-User should be able to create a Project
-
-Home          |  Add Project |  Home After Add
-:-------------------------:|:-------------------------: | :--------------------------------:
-![sc-home](assets/sc-task-activitiy-1.png)  |  ![sc-add-project](assets/sc-task-activity-2.png) | ![sc-home-project](assets/sc-task-activity-3.png)
-
-#### Add Task
-
-User should be able to add a task to a Project
-
-User should be able to assign themselves a task, accept that task, and later finish that task
-
-Update Task          |  Home After Update
-:-------------------------:|:-------------------------:
-![sc-add-task](assets/sc-task-activity-4.png)  |  ![sc-add-task-after](assets/sc-task-activity-5.png)
 
 ## Fire Base Functionality
 
@@ -35,7 +18,7 @@ Home          |  User Welcome Screen |  Home After Add
 
 User login with email and password
 
-Home          |  User Welcome Screen |  Home After Add
+Welcome Page          |  SignIn with email or google |  User Welcome Page
 :-------------------------:|:-------------------------: | :--------------------------------:
 ![sc-home](assets/firebase-signin1.png)  |  ![sc-add-project](assets/firebase-signin2.png) | ![sc-home-project](assets/firebase-signin3.png)
 
@@ -45,9 +28,9 @@ User created projects in Firestore cloud database
 
 Add Project          |  Firebase Project
 :-------------------------:|:-------------------------:
-![sc-add-task](assets/firebase-addproject1.png)  |  ![sc-add-task-after](assets/firebase-snip-project.png)
+![sc-add-task](assets/firebase-addproject1.png)  |  ![sc-add-task-after](assets/firebase-snip-project.PNG)
 
-Edit Project          |  Edit Option
+Edit Project          |  Edit Options
 :-------------------------:|:-------------------------:
 ![sc-add-task](assets/firebase-projectedit.png)  |  ![sc-add-task-after](assets/firebase-projectedit2.png)
 
@@ -55,7 +38,7 @@ Edit Project          |  Edit Option
 
 User created tasks to those projects
 
-Home          |  User Welcome Screen |  Home After Add
+Task Activity          | Add Task Activity |  Task Activity
 :-------------------------:|:-------------------------: | :--------------------------------:
 ![sc-home](assets/firebase-add-task.png)  |  ![sc-add-project](assets/firebase-addtask1.png) | ![sc-home-project](assets/firebase-addtask2.png)
 
@@ -65,13 +48,13 @@ Ability to allow users to "Assign" a task to themself
 
 The user assgined to a task should be able to "Accept" that task, and later "Finish" that task. 
 
-Home          |  User Welcome Screen |  Home After Add
+Update Task          |  Assign Task |  Task After Update
 :-------------------------:|:-------------------------: | :--------------------------------:
 ![sc-home](assets/firebase-updatetask.png)  |  ![sc-add-project](assets/firebase-updatetask2.png) | ![sc-home-project](assets/firebase-updatetask3.png)
 
-Add Project          |  Firebase Project
+Firebase Task          |  Firebase Task After
 :-------------------------:|:-------------------------:
-![sc-add-task](assets/firebase-snip-task.png)  |  ![sc-add-task-after](assets/firebase-snip-task2.png)
+![sc-add-task](assets/firebase-snip-task.PNG)  |  ![sc-add-task-after](assets/firebase-snip-task2.PNG)
 
 
 ## Credit/Sources 
