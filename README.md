@@ -140,6 +140,6 @@ Report 4          |  Report 5 |  Report 6
  
  2/02/2019: Added in Firestore and completed add, delete functionality to Firestore database. 
  
- 2/03/2019: Updated readme and added in Firebase update functionality , added cloud functions, added sample of how data is stored in firestore
+ 2/03/2019: Updated readme and added in Firebase update functionality , added cloud functions, added sample of how data is stored in firestore, generated apk and apk bundle, updated accessibility reference (focusable, contentDescription, hint), ran accessibility scanner
 
 
