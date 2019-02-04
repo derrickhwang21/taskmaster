@@ -1,4 +1,4 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Database;
 
 import android.content.Context;
 
@@ -28,3 +28,4 @@ public class DatabaseClient {
     return appDatabase;
   }
 }
+

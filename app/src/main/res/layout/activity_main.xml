@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="8dp"
-    tools:context=".MainActivity">
+    tools:context=".Activity.MainActivity">
+
+
 
     <TextView
         android:id="@+id/welcomView"
@@ -25,6 +27,16 @@
         android:layout_marginBottom="200dp"
         android:onClick="onSignInButtonPressed"
         android:text="Sign In" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="100dp"
+        android:onClick="onSignOutButtonPressed"
+        android:text="Sign Out" />
 
 
 </RelativeLayout>

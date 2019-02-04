@@ -1,4 +1,6 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Database;
+
+import com.hwang.taskmaster.Database.Project;
 
 import java.util.List;
 
@@ -21,9 +23,9 @@ public interface ProjectDao {
   void insertProject(Project project);
 
   @Delete
-  void delete(Project project);
+  void deleteProject(Project project);
 
   @Update
-  void update(Project project);
+  void updateProject(Project project);
   }
 

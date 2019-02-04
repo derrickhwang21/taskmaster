@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ProjectActivity"
+    tools:context=".Activity.ProjectActivity"
     tools:showIn="@layout/activity_project">
 
     <LinearLayout
@@ -29,7 +29,9 @@
         app:layout_constraintTop_toBottomOf="@id/welcomeAddProjectLayout"
         android:id="@+id/recyclerview_projects"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 

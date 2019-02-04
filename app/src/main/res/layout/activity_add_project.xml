@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.AddTaskActivity">
+    tools:context=".Activity.AddProjectActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,25 +14,20 @@
         android:padding="16dp">
 
         <EditText
-            android:id="@+id/editTextTask"
+            android:id="@+id/editTextProject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="task?" />
+            android:hint="project?" />
 
         <EditText
-            android:id="@+id/editTextDesc"
+            android:id="@+id/editTextDescProject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="description..." />
 
-        <EditText
-            android:id="@+id/editTextFinishBy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="finish by?" />
 
         <Button
-            android:id="@+id/button_save"
+            android:id="@+id/button_save_project"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

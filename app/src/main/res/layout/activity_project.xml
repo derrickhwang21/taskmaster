@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProjectActivity">
+    tools:context=".Activity.ProjectActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -23,7 +23,7 @@
     <include layout="@layout/content_project" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_button_add"
+        android:id="@+id/floating_button_add_project"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

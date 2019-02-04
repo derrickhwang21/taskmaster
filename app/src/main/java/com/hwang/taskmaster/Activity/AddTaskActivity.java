@@ -1,20 +1,40 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Activity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.hwang.taskmaster.Database.DatabaseClient;
+import com.hwang.taskmaster.Database.Project;
+import com.hwang.taskmaster.Database.ProjectDatabaseClient;
+import com.hwang.taskmaster.Database.Task;
+import com.hwang.taskmaster.R;
 
-public class AddProjectActivity extends AppCompatActivity {
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.Nullable;
+
+public class AddTaskActivity extends AppCompatActivity {
 
 
   private EditText editTextTitle;
   private EditText editTextDescription;
   private EditText editTextFinishBy;
+  private String projectTitle;
+  private static final String TAG = "AddTaskActivity";
+
 
 
 
@@ -23,6 +43,7 @@ public class AddProjectActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_add_task);
 
+    projectTitle = getIntent().getStringExtra("project");
     editTextTitle = findViewById(R.id.editTextTask);
     editTextDescription = findViewById(R.id.editTextDesc);
     editTextFinishBy = findViewById(R.id.editTextFinishBy);
@@ -36,6 +57,7 @@ public class AddProjectActivity extends AppCompatActivity {
   }
 
   private void saveTask(){
+
     final String saveTitle = editTextTitle.getText().toString().trim();
     final String saveDescription = editTextDescription.getText().toString().trim();
     final String saveFinishBy = editTextFinishBy.getText().toString().trim();
@@ -61,11 +83,27 @@ public class AddProjectActivity extends AppCompatActivity {
     class Savetask extends AsyncTask<Void, Void, Void> {
       @Override
       protected Void doInBackground(Void... voids){
+
         Task task = new Task();
+
         task.setTitle(saveTitle);
         task.setDescription(saveDescription);
         task.setFinishBy(saveFinishBy);
         task.setTaskState(null);
+        task.setProjecTitle(projectTitle);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference taskReference = db.collection("project").document(projectTitle);
+        Map<String, Object> fireTask = new HashMap<>();
+        fireTask.put("name", saveTitle);
+        fireTask.put("description", saveDescription);
+        fireTask.put("finishBy", saveFinishBy);
+        fireTask.put("state", null);
+        fireTask.put("projectTitle", projectTitle);
+
+        taskReference.collection("tasks")
+                .document(saveTitle).set(fireTask);
+
 
         DatabaseClient.getInstance(getApplicationContext()).getAppDatabase().taskDao().add(task);
         return null;
@@ -75,8 +113,8 @@ public class AddProjectActivity extends AppCompatActivity {
       protected void onPostExecute(Void aVoid){
         super.onPostExecute(aVoid);
         finish();
-        startActivity(new Intent(getApplicationContext(), ProjectActivity.class));
-        Toast.makeText(getApplicationContext(), "Created", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(getApplicationContext(), TaskActivity.class));
+        Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
       }
     }
 

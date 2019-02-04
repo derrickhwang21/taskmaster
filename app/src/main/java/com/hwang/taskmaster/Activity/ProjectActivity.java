@@ -1,0 +1,106 @@
+package com.hwang.taskmaster.Activity;
+
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.hwang.taskmaster.Database.Project;
+import com.hwang.taskmaster.Database.ProjectDatabaseClient;
+import com.hwang.taskmaster.R;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+
+import java.util.List;
+
+public class ProjectActivity extends AppCompatActivity {
+
+  private FloatingActionButton buttonAddProject;
+  private RecyclerView recyclerView;
+  private static final String TAG = "ProjectActivity";
+  private List<Project> projectList;
+
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_project);
+    recyclerView = findViewById(R.id.recyclerview_projects);
+    recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+    Toolbar toolbar = findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
+
+    TextView welcomeViewProject = findViewById(R.id.welcomeAddProject);
+    Intent intent = getIntent();
+    String displayName = intent.getStringExtra("DISPLAY_NAME");
+    displayName = displayName == null ? "UNKOWN" : displayName;
+    welcomeViewProject.setText("Hello: " + displayName + " Go ahead and add your first project!");
+
+    buttonAddProject = findViewById(R.id.floating_button_add_project);
+    buttonAddProject.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(ProjectActivity.this, AddProjectActivity.class);
+        startActivity(intent);
+      }
+    });
+    getProjects();
+  }
+
+  private void getProjects(){
+    class GetProjects extends AsyncTask<Void, Void, List<Project>> {
+
+      @Override
+      protected List<Project> doInBackground(Void... voids){
+         projectList = ProjectDatabaseClient.getInstance(getApplicationContext()).getProjectDatabase().projectDao().getAll();
+        return projectList;
+      }
+
+//      @Override
+//      protected List<Project> doInBackground(Void... voids){
+//        FirebaseFirestore db = FirebaseFirestore.getInstance();
+//        List<Project> projectList = db.collection("project")
+//                .get()
+//                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                  @Override
+//                  public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                    if(task.isSuccessful()){
+//                      for(QueryDocumentSnapshot document : task.getResult()){
+//                        Log.d(TAG, document.getId() + " => " + document.getData());
+//                      }
+//                    }
+//                    else{
+//                      Log.w(TAG, "Error getting documents.", task.getException());
+//                    }
+//                  }
+//                });
+//        return projectList;
+//      }
+
+      @Override
+      protected void onPostExecute(List<Project> projects){
+        super.onPostExecute(projects);
+        ProjectAdapter adapter = new ProjectAdapter(ProjectActivity.this, projects);
+        recyclerView.setAdapter(adapter);
+      }
+    }
+    GetProjects gp = new GetProjects();
+    gp.execute();
+  }
+
+}

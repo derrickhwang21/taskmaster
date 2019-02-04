@@ -1,5 +1,7 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Database;
 
+
+import com.hwang.taskmaster.Database.StateConverter;
 
 import java.io.Serializable;
 
@@ -18,11 +20,12 @@ public class Task implements Serializable {
   public String finishBy;
   @TypeConverters(StateConverter.class)
   public State taskState;
+  public String projectReference;
 
   public Task(){}
 
   public enum State {AVAILABLE("AVAILABLE"), ASSIGNED("ASSIGNED"), ACCEPTED("ACCEPTED"), FINISHED("FINISHED");
-    protected final String value;
+    public final String value;
     State(String value) {
       this.value = value;}}
 
@@ -41,6 +44,10 @@ public class Task implements Serializable {
   public State getState(){ return taskState;}
 
   public void setTaskState(State state){ this.taskState = state;}
+
+  public String getProjecTitle() { return projectReference; }
+
+  public void setProjecTitle(String projectReference) { this.projectReference = projectReference; }
 
   public String toString(){ return "Task name: " + title + " Description: " + description +  " Finish by: " + finishBy;}
 

@@ -1,4 +1,4 @@
-package com.hwang.taskmaster;
+package com.hwang.taskmaster.Activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,6 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.hwang.taskmaster.Database.Project;
+import com.hwang.taskmaster.Database.Task;
+import com.hwang.taskmaster.R;
 
 import java.util.List;
 
@@ -18,14 +22,16 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
   private List<Task> taskList;
 
 
+
   public TasksAdapter(Context myContext, List<Task> taskList){
     this.myContext = myContext;
     this.taskList = taskList;
+
   }
 
   @Override
   public TasksViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-    View view = LayoutInflater.from(myContext).inflate(R.layout.recyclerview_projects, parent, false);
+    View view = LayoutInflater.from(myContext).inflate(R.layout.recyclerview_tasks, parent, false);
     return new TasksViewHolder(view);
   }
 
@@ -63,6 +69,7 @@ public class TasksAdapter extends RecyclerView.Adapter<TasksAdapter.TasksViewHol
     @Override
     public void onClick(View view) {
       Task task = taskList.get(getAdapterPosition());
+
 
       Intent intent = new Intent(myContext, UpdateTaskActivity.class);
       intent.putExtra("task", task);
