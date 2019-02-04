@@ -100,6 +100,11 @@ Report 4          |  Report 5 |  Report 6
 :-------------------------:|:-------------------------: | :--------------------------------:
 ![scanner](assets/scanner-result3.png)  |  ![scanner](assets/scanner-result4.png) | ![scanner](assets/scanner-result5.png)
 [See Report](assets/accessibility-report/report4.txt)  |  [See Report](assets/accessibility-report/report5.txt) | [See Report](assets/accessibility-report/report6.txt)
+
+## APk File
+
+Go To APK : [Build Files](app/build/outputs)
+
 ## Credit/Sources 
 [RecyclerView](https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465)
 
