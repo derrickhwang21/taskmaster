@@ -94,12 +94,12 @@ Firebase Task          |  Firebase Task After
 Report 1          |  Report 2 |  Report 3
 :-------------------------:|:-------------------------: | :--------------------------------:
 ![scanner](assets/scanner-result.png)  |  ![scanner](assets/scanner-result1.png) | ![scanner](assets/scanner-result2.png)
-![scanner](assets/accessibility-report/report.txt)  |  ![scanner](assets/accessibility-report/report2.txt) | ![scanner](assets/accessibility-report/report3.txt)
+[See Report](assets/accessibility-report/report.txt)  |  [See Report](assets/accessibility-report/report2.txt) | [See Report](assets/accessibility-report/report3.txt)
 
 Report 4          |  Report 5 |  Report 6
 :-------------------------:|:-------------------------: | :--------------------------------:
 ![scanner](assets/scanner-result3.png)  |  ![scanner](assets/scanner-result4.png) | ![scanner](assets/scanner-result5.png)
-![scanner](assets/accessibility-report/report4.txt)  |  ![scanner](assets/accessibility-report/report5.txt) | ![scanner](assets/accessibility-report/report6.txt)
+[See Report](assets/accessibility-report/report4.txt)  |  [See Report](assets/accessibility-report/report5.txt) | [See Report](assets/accessibility-report/report6.txt)
 ## Credit/Sources 
 [RecyclerView](https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465)
 
