@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Welcome"
+        android:text="@string/welcome"
+        android:contentDescription="@string/welcome"
         android:textAlignment="center"
         android:textSize="32sp" />
 
@@ -26,7 +27,8 @@
         android:layout_centerInParent="true"
         android:layout_marginBottom="200dp"
         android:onClick="onSignInButtonPressed"
-        android:text="Sign In" />
+        android:hint="@string/signin_button"
+        android:text="@string/signin" />
 
     <Button
         android:id="@+id/button2"
@@ -36,7 +38,8 @@
         android:layout_centerInParent="true"
         android:layout_marginBottom="100dp"
         android:onClick="onSignOutButtonPressed"
-        android:text="Sign Out" />
+        android:hint="@string/signout_button"
+        android:text="@string/signout" />
 
 
 </RelativeLayout>

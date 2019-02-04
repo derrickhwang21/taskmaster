@@ -17,13 +17,13 @@
             android:id="@+id/editTextProject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="project?" />
+            android:hint="@string/edit_project" />
 
         <EditText
             android:id="@+id/editTextDescProject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="description..." />
+            android:hint="@string/edit_description" />
 
 
         <Button
@@ -33,7 +33,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             android:background="@color/colorPrimary"
-            android:text="Save"
+            android:text="@string/save"
+            android:contentDescription="@string/save_button"
             android:textAllCaps="false" />
 
     </LinearLayout>

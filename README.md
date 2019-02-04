@@ -89,7 +89,17 @@ Firebase Task          |  Firebase Task After
 
 [Path to Cloud Functions](/cloud-functions)
 
+## Accessibility Scanner Result
 
+Report 1          |  Report 2 |  Report 3
+:-------------------------:|:-------------------------: | :--------------------------------:
+![scanner](assets/scanner-result.png)  |  ![scanner](assets/scanner-result1.png) | ![scanner](assets/scanner-result2.png)
+![scanner](assets/accessibility-report/report.txt)  |  ![scanner](assets/accessibility-report/report2.txt) | ![scanner](assets/accessibility-report/report3.txt)
+
+Report 4          |  Report 5 |  Report 6
+:-------------------------:|:-------------------------: | :--------------------------------:
+![scanner](assets/scanner-result3.png)  |  ![scanner](assets/scanner-result4.png) | ![scanner](assets/scanner-result5.png)
+![scanner](assets/accessibility-report/report4.txt)  |  ![scanner](assets/accessibility-report/report5.txt) | ![scanner](assets/accessibility-report/report6.txt)
 ## Credit/Sources 
 [RecyclerView](https://code.tutsplus.com/tutorials/getting-started-with-recyclerview-and-cardview-on-android--cms-23465)
 
@@ -113,6 +123,8 @@ Firebase Task          |  Firebase Task After
  [Cloud Function - Reading from Firestore](https://stackoverflow.com/questions/48375904/read-data-from-cloud-firestore-with-firebase-cloud-function/49516133#49516133)
  
  [Cloud function](https://firebase.google.com/docs/functions/functions-and-firebase#cloud_functions_for_firebase)
+ 
+ [Accessibility Scanner](https://developer.android.com/guide/topics/ui/accessibility/)
  
  ## ChangeLog
  

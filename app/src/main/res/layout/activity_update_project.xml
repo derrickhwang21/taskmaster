@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
-            android:text="Update Project"
+            android:text="@string/edit_project"
             android:textAlignment="center"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline" />
 
@@ -25,13 +25,13 @@
             android:id="@+id/editProjectActivityTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="task?" />
+            android:hint="@string/edit_project" />
 
         <EditText
             android:id="@+id/editProjectActivtyDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="description..." />
+            android:hint="@string/edit_description" />
 
 
 
@@ -42,7 +42,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             android:background="@color/colorPrimary"
-            android:text="Update"
+            android:contentDescription="@string/update_button"
+            android:text="@string/update"
             android:textAllCaps="false" />
 
 
@@ -52,7 +53,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            android:text="Delete"
+            android:contentDescription="@string/delete_button"
+            android:text="@string/delete"
             android:textAllCaps="false" />
 
 

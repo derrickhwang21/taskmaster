@@ -1,0 +1,6 @@
+The following is a list of opportunities to improve the accessibility of My Application. Each item corresponds to an outlined area on the attached screenshot.
+
+Item label
+com.hwang.taskmaster:id/recyclerview_projects
+This item may not have a label readable by screen readers.
+
