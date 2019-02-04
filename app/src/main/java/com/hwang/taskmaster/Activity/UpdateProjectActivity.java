@@ -167,7 +167,7 @@ public class UpdateProjectActivity extends AppCompatActivity {
         super.onPostExecute(aVoid);
         Toast.makeText(getApplicationContext(), "Deleted", Toast.LENGTH_LONG);
         finish();
-        startActivity(new Intent(UpdateProjectActivity.this, UpdateProjectActivity.class));
+        startActivity(new Intent(UpdateProjectActivity.this, MainActivity.class));
       }
     }
 
