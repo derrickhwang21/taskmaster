@@ -19,7 +19,7 @@ Building an Android Task Master App. Which allows tracking tasks on a project.
 
 ## Fire Base Functionality
 
-Firebase as a backend for our TaskMaster App
+##### Firebase as a backend for our TaskMaster App
 
 
 Home          |  User Welcome Screen |  Home After Add
@@ -28,9 +28,9 @@ Home          |  User Welcome Screen |  Home After Add
 
 
 
-#### User Login 
+## User Login 
 
-User login with email and password
+##### User login with email and password
 
 Welcome Page          |  SignIn with email or google |  User Welcome Page
 :-------------------------:|:-------------------------: | :--------------------------------:
@@ -38,9 +38,9 @@ Welcome Page          |  SignIn with email or google |  User Welcome Page
 
 
 
-#### User Projects in Firebase Database
+### User Projects in Firebase Database
 
-User created projects in Firestore cloud database
+##### User created projects in Firestore cloud database
 
 
 Add Project          |  Firebase Project
@@ -51,19 +51,19 @@ Edit Project          |  Edit Options
 :-------------------------:|:-------------------------:
 ![sc-add-task](assets/firebase-projectedit.png)  |  ![sc-add-task-after](assets/firebase-projectedit2.png)
 
-#### User Tasks in Firebase Database
+### User Tasks in Firebase Database
 
-User created tasks to those projects
+##### User created tasks to those projects
 
 Task Activity          | Add Task Activity |  Task Activity
 :-------------------------:|:-------------------------: | :--------------------------------:
 ![sc-home](assets/firebase-add-task.png)  |  ![sc-add-project](assets/firebase-addtask1.png) | ![sc-home-project](assets/firebase-addtask2.png)
 
-#### User ability to assign task
+### User ability to assign task
 
-Ability to allow users to "Assign" a task to themself
+##### Ability to allow users to "Assign" a task to themself
 
-The user assgined to a task should be able to "Accept" that task, and later "Finish" that task. 
+##### The user assgined to a task should be able to "Accept" that task, and later "Finish" that task. 
 
 
 Update Task          |  Assign Task |  Task After Update
@@ -79,7 +79,7 @@ Firebase Task          |  Firebase Task After
 ## Database Structure
 
 
-* Project
+## Project
 
 |  Field |  Type    |
 |-------------|------------|
@@ -89,7 +89,7 @@ Firebase Task          |  Firebase Task After
 | description  | String |
 
 
-* Task
+## Task
 
 |  Field      |  Type      |
 |-------------|------------|
@@ -104,7 +104,7 @@ Firebase Task          |  Firebase Task After
 
 ## Cloud Function
 
-#### View all Tasks assigned to them on a screen
+##### View all Tasks assigned to them on a screen
 
 [Show Projects](https://us-central1-taskmaster-9484b.cloudfunctions.net/showCollections)
 
