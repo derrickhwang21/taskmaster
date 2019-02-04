@@ -79,7 +79,7 @@ Firebase Task          |  Firebase Task After
 ## Database Structure
 
 
-## Project
+### Project
 
 |  Field |  Type    |
 |-------------|------------|
@@ -89,7 +89,7 @@ Firebase Task          |  Firebase Task After
 | description  | String |
 
 
-## Task
+### Task
 
 |  Field      |  Type      |
 |-------------|------------|
